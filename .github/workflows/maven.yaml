@@ -22,7 +22,7 @@ jobs:
                     distribution: 'adopt'
 
             -   name: Deploy to GitHub Packages
-                run: mvn deploy --settings .github/settings.xml
+                run: mvn deploy -B --settings .github/settings.xml -Papache-release -Dgpg.skip=true
                 env:
                     LW_MVN_USER: ${{ secrets.LW_MVN_USER }}
                     LW_MVN_TOKEN: ${{ secrets.LW_MVN_TOKEN }}
